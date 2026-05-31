@@ -523,8 +523,6 @@ tk.Button(btn_frame_w, text="✏️ Редактировать", command=edit_wr
     side=tk.LEFT, padx=5)
 tk.Button(btn_frame_w, text="🗑️ Удалить", command=delete_writer, bg='#f44336', fg='white', padx=10, pady=5).pack(
     side=tk.LEFT, padx=5)
-tk.Button(btn_frame_w, text="🔄 Обновить", command=load_writers, bg='#2196F3', fg='white', padx=10, pady=5).pack(
-    side=tk.LEFT, padx=5)
 
 
 # ===================== ВКЛАДКА 2: ПРОИЗВЕДЕНИЯ =====================
@@ -700,7 +698,7 @@ def add_work():
         try:
             year_written = int(entry_year_w.get()) if entry_year_w.get() else 0
             if year_written < 0 or year_written > 2025:
-                messagebox.showerror("Ошибка", "Год написания должен быть от 0 до 2025!")
+                messagebox.showerror("Ошибка", "Год написания должен быть от 0 до 2026!")
                 return
         except ValueError:
             messagebox.showerror("Ошибка", "Год написания должен быть числом!")
@@ -709,7 +707,7 @@ def add_work():
         try:
             year_published = int(entry_year_p.get()) if entry_year_p.get() else None
             if year_published and (year_published < 0 or year_published > 2025):
-                messagebox.showerror("Ошибка", "Год публикации должен быть от 0 до 2025!")
+                messagebox.showerror("Ошибка", "Год публикации должен быть от 0 до 2026!")
                 return
             if year_published and year_published < year_written:
                 messagebox.showerror("Ошибка", "Год публикации не может быть раньше года написания!")
@@ -1061,8 +1059,6 @@ tk.Button(btn_frame_p, text="➕ Добавить", command=add_work, bg='#4CAF5
 tk.Button(btn_frame_p, text="✏️ Редактировать", command=edit_work, bg='#FF9800', fg='white', padx=10, pady=5).pack(
     side=tk.LEFT, padx=5)
 tk.Button(btn_frame_p, text="🗑️ Удалить", command=delete_work, bg='#f44336', fg='white', padx=10, pady=5).pack(
-    side=tk.LEFT, padx=5)
-tk.Button(btn_frame_p, text="🔄 Обновить", command=load_works, bg='#2196F3', fg='white', padx=10, pady=5).pack(
     side=tk.LEFT, padx=5)
 # ===================== ВКЛАДКА 3: СТАТИСТИКА =====================
 
